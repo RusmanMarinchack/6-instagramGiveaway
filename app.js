@@ -1,27 +1,12 @@
 const fs = require('fs')
 
-let out0 = fs.readFileSync('./files/out0.txt', 'utf-8').split('\n')
-let out1 = fs.readFileSync('./files/out1.txt', 'utf-8').split('\n')
-let out2 = fs.readFileSync('./files/out2.txt', 'utf-8').split('\n')
-let out3 = fs.readFileSync('./files/out3.txt', 'utf-8').split('\n')
-let out4 = fs.readFileSync('./files/out4.txt', 'utf-8').split('\n')
-let out5 = fs.readFileSync('./files/out5.txt', 'utf-8').split('\n')
-let out6 = fs.readFileSync('./files/out6.txt', 'utf-8').split('\n')
-let out7 = fs.readFileSync('./files/out7.txt', 'utf-8').split('\n')
-let out8 = fs.readFileSync('./files/out8.txt', 'utf-8').split('\n')
-let out9 = fs.readFileSync('./files/out9.txt', 'utf-8').split('\n')
-let out10 = fs.readFileSync('./files/out10.txt', 'utf-8').split('\n')
-let out11 = fs.readFileSync('./files/out11.txt', 'utf-8').split('\n')
-let out12 = fs.readFileSync('./files/out12.txt', 'utf-8').split('\n')
-let out13 = fs.readFileSync('./files/out13.txt', 'utf-8').split('\n')
-let out14 = fs.readFileSync('./files/out14.txt', 'utf-8').split('\n')
-let out15 = fs.readFileSync('./files/out15.txt', 'utf-8').split('\n')
-let out16 = fs.readFileSync('./files/out16.txt', 'utf-8').split('\n')
-let out17 = fs.readFileSync('./files/out17.txt', 'utf-8').split('\n')
-let out18 = fs.readFileSync('./files/out18.txt', 'utf-8').split('\n')
-let out19 = fs.readFileSync('./files/out19.txt', 'utf-8').split('\n')
+let allFiles = []
 
-let allFiles = [out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15, out16, out17, out18, out19]
+let files = fs.readdirSync('./files')
+
+for(let i=0; i<files.length; i++) {
+    allFiles.push(fs.readFileSync(`./files/out${i}.txt`, 'utf-8').split('\n'))
+}
 
 function uniqueValues() {
     let allNames = []   
